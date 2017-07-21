@@ -154,6 +154,7 @@ Here are some resources that still need to be implemented on the pack:
 * htaccess limits: Adjust the htaccess to avoid setting up it on every new project/domain;
 * Error codes returned by the API: Need to review if all the codes fits the specification and cover other error codes;
 * Documentation: Define ways to automatically generate documentation;
+* Authenticantion: Need to implement HTTP Basic authentication (htpasswd), Digest, or OAuth2;
 
 ## License
 vsapi API Pack is a free project: you can redistribute it and/or modify it under the terms of the Apache License as published by the Apache.org.
