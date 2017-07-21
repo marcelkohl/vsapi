@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+
+        <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/agate.min.css">
+        <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+
+        <title>VSAPI Ajax Sample</title>
+        <script>
+            var apiURL = 'http://localhost/vsapi/api/v1/';
+            var method = 'Ping';
+            var methodThatDoesNotExist = 'MethodThatDoesNotExist';
+            var idSample = '123456';
+
+            function updateViewCode() {
+                hljs.initHighlighting.called = false;
+                hljs.initHighlighting();
+            }
+
+            function postItem() {
+                $.ajax({
+                    type : 'POST',
+                    url : apiURL+method,
+                    data : JSON.stringify({
+                                "message": "sample message here",
+                                "user": "the-best-user-ever",
+                                "list": ["first", "second", "third"]
+                            }),
+                    contentType: "application/json",
+                    success : function(data){
+                        $('#api-return').html(JSON.stringify(data, null, 4));
+                        console.log(data);
+                        updateViewCode();
+                    }
+                });
+            }
+
+            function getItem() {
+                $.ajax({
+                    type : 'GET',
+                    url : apiURL+method,
+                    data : JSON.stringify({
+                                "message": "sample message here",
+                                "user": "the-best-user-ever",
+                                "list": ["first", "second", "third"]
+                            }),
+                    contentType: "application/json",
+                    success : function(data){
+                        $('#api-return').html(JSON.stringify(data, null, 4));
+                        console.log(data);
+                        updateViewCode();
+                    }
+                });
+            }
+
+            function listOptions() {
+                $.ajax({
+                    type : 'OPTIONS',
+                    url : apiURL+method,
+                    contentType: "application/json",
+                    success : function(data){
+                        $('#api-return').html(JSON.stringify(data, null, 4));
+                        console.log(data);
+                        updateViewCode();
+                    }
+                });
+            }
+
+            function methodNotExistent () {
+                $.ajax({
+                    type : 'POST',
+                    url : apiURL+methodThatDoesNotExist,
+                    contentType: "application/json",
+                    success : function(data){
+                        $('#api-return').html(JSON.stringify(data, null, 4));
+                        console.log(data);
+                        updateViewCode();
+                    }
+                });
+            }
+
+            function deleteItem () {
+                $.ajax({
+                    type : 'DELETE',
+                    url : apiURL+method+'/'+idSample,
+                    contentType: "application/json",
+                    success : function(data){
+                        $('#api-return').html(JSON.stringify(data, null, 4));
+                        console.log(data);
+                        updateViewCode();
+                    }
+                });
+            }
+
+            function methodError () {
+                $.ajax({
+                    type : 'DELETE',
+                    url : apiURL+method,
+                    contentType: "application/json",
+                    success : function(data){
+                        $('#api-return').html(JSON.stringify(data, null, 4));
+                        console.log(data);
+                        updateViewCode();
+                    }
+                });
+            }
+        </script>
+    </head>
+    <body>
+        <h2>VSAPI Ajax Sample</h2>
+        <a href="#" onclick="postItem()">POST sample</a> |
+        <a href="#" onclick="getItem()">GET sample</a> |
+        <a href="#" onclick="listOptions()">List Options</a> |
+        <a href="#" onclick="deleteItem()">Delete Sample</a> |
+        <a href="#" onclick="methodError()">Method Error</a> |
+        <a href="#" onclick="methodNotExistent()">Method that does not exist</a> |
+
+        <div  style="padding-top:20px;">
+            <h4>API Answer here:</h4>
+            <hr />
+            <pre><code id="api-return" class="json">
+            </code></pre>
+        </div>
+    </body>
+</html>

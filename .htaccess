@@ -1,0 +1,18 @@
+Options -Indexes
+ErrorDocument 403 http://localhost/vsapi/access-denied/
+ErrorDocument 404 http://localhost/vsapi/page-not-found/
+RewriteEngine on
+
+RewriteCond %{QUERY_STRING} (<|%3C).*script.*(>|%3E) [NC,OR]
+RewriteCond %{QUERY_STRING} GLOBALS(=|[|%[0-9A-Z]{0,2}) [OR]
+RewriteCond %{QUERY_STRING} _REQUEST(=|[|%[0-9A-Z]{0,2})
+RewriteCond %{HTTP_HOST} ^(www\.localhost/vsapi)(:8012)? [NC]
+
+RewriteRule ^(.*) http://localhost/vsapi/$1 [R=301,L]
+
+DirectoryIndex index.html index.php
+
+order deny,allow
+RewriteRule		^page-not-found/?$    /vsapi/controller/page-not-found.php   [NC,L]
+RewriteRule		^access-denied/?$    /vsapi/controller/access-denied.php   [NC,L]
+RewriteRule		^api/([A-Za-z0-9-]+)/([A-Za-z0-9-]+)/?(.*)/?$    /vsapi/index.php?vsapiversion=$1&vsapiservice=$2&vsapiuid=$3   [NC,L]
