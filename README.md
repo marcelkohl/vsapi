@@ -1,3 +1,8 @@
+[![Maintenance](https://img.shields.io/badge/Maintained%3F-no-red.svg)](https://bitbucket.org/lbesson/ansi-colors)
+[![Generic badge](https://img.shields.io/badge/Status-Deprecated-orange.svg)](https://shields.io/)
+[![Generic badge](https://img.shields.io/badge/License-Apache-blue.svg)](https://shields.io/)
+[![Generic badge](https://img.shields.io/badge/PHP-v.5.6-purple.svg)](https://shields.io/)
+
 # Very Simple API Pack
 
 The very simple API pack is an effort to make a pack with the very basic stuff to those developers who needs to make an API but doen't want to start from the very beggining.
@@ -155,7 +160,3 @@ Here are some resources that still need to be implemented on the pack:
 * Error codes returned by the API: Need to review if all the codes fits the specification and cover other error codes;
 * Documentation: Define ways to automatically generate documentation;
 * Authenticantion: Need to implement HTTP Basic authentication (htpasswd), Digest, or OAuth2;
-
-## License
-vsapi API Pack is a free project: you can redistribute it and/or modify it under the terms of the Apache License as published by the Apache.org.
-The vsapi is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the Apache License for more details.

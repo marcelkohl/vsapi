@@ -1,6 +1,6 @@
 <?php
 if (function_exists('saveErrorLog') == false){
-	function saveErrorLog($pContent, $pErrorObj){
+	function saveErrorLog($pContent, $pErrorObj) {
 		$dataHora = new DateTime('now');
 		$fileName = $dataHora->format('Ymd-His').'-'.rand(111111111,999999999);
 		$content = '['.$dataHora->format('Y-m-d H:i:s').']'.PHP_EOL;
