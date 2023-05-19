@@ -1,7 +1,7 @@
-[![Maintenance](https://img.shields.io/badge/Maintained%3F-no-red.svg)](https://bitbucket.org/lbesson/ansi-colors)
-[![Generic badge](https://img.shields.io/badge/Status-Deprecated-orange.svg)](https://shields.io/)
-[![Generic badge](https://img.shields.io/badge/License-Apache-blue.svg)](https://shields.io/)
-[![Generic badge](https://img.shields.io/badge/PHP-v.5.6-purple.svg)](https://shields.io/)
+[![Maintenance](https://img.shields.io/badge/Maintained%3F-no-red.svg)](#)
+[![Generic badge](https://img.shields.io/badge/Status-Deprecated-orange.svg)](#)
+[![GPLv3 license](https://img.shields.io/badge/License-Apache-purple.svg)](https://opensource.org/license/apache-2-0/)
+[![Ask Me Anything !](https://img.shields.io/badge/Ask%20me-anything-1abc9c.svg)](https://github.com/marcelkohl)
 
 # Very Simple API Pack
 
